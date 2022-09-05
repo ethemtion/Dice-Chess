@@ -1,4 +1,4 @@
-import { Chess } from "../node_modules/chess.js/chess.js";
+import { Chess } from "./chess.js";
 
 let myOrientation = "white";
 var board;
