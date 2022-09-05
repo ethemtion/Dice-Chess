@@ -96,6 +96,12 @@ $("#btChangeOrientation").click(function () {
     changeOrientation();
   });
 
+$("#btPlayRandom").click(function () {
+    setTimeout(playRandom, 250);
+})
+$("#btRandomVs").click(function () {
+    let random =  setInterval(playRandom, 400);
+})
 
 // ---------------------------------
 // ---------------------------------
@@ -105,5 +111,17 @@ function changeOrientation(){
     if (myOrientation == "black") myOrientation = "white";
   else myOrientation = "black";
   board.orientation(myOrientation);
-    
+}
+
+function playRandom(){
+    var possibleMoves = game.moves()
+
+    if(possibleMoves.length === 0){
+        clearInterval(random)   
+        return
+    }
+    var randomIdx = Math.floor(Math.random() * possibleMoves.length)
+    game.move(possibleMoves[randomIdx])
+    board.position(game.fen())
+
 }
