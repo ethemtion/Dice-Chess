@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@chrisoakman/chessboardjs": "^1.0.0",
-    "chess.js": "^0.13.4"
+    "chess.js": "^0.13.4",
+    "mdb-ui-kit": "^5.0.0"
   }
 }

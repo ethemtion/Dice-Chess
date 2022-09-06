@@ -1,5 +1,5 @@
 body {
-  background-color: #344e41;
+  background-color: #798071;
 }
 p {
   font-size: large;
@@ -11,11 +11,18 @@ p {
   font-size: larger;
 }
 
-.userSection {
-  background-color: black;
-  width: 100%;
-  color: wheat;
-  height: 5vw;
-  
+.container-fluid{
+  background-color: #5b6055;
+  border:  2px solid black ;
+  border-radius: 3%;
 }
 
+@media screen and (min-width: 1900px) {
+  #board{
+    width: 80%;
+  }
+  #dices{
+    align-items: flex-end;
+  }
+
+}
