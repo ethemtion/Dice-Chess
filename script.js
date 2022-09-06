@@ -7,6 +7,8 @@ var game = Chess();
 let dice1, dice2, dice3;
 let hasLegalMoveFlag = false;
 let random;
+let counter = 0;
+let index, xIndex;
 
 var piecesNames = {
   p: "Pawn",
@@ -32,7 +34,11 @@ $(document).ready(function () {
   board = Chessboard("board", config);
   $(window).resize(board.resize);
   updateStatus();
-  generateDice();
+  // generateDice();
+
+  //   $(".piece-417db").click(function () {
+  //     console.log($this)
+  //     })
 });
 
 // -------------------------------------
@@ -43,12 +49,7 @@ function onDragStart(source, piece, position, orientation) {
   //Pick up pieces for the side to move
   if (game.game_over()) return false;
 
-  if (
-    (game.turn() + dice1.toUpperCase() != piece)
-  ) {
-    console.log(piece.search(/^w/));
-    console.log(piece);
-    console.log(piece == "w" + dice1.toUpperCase());
+  if (game.turn() + dice1.toUpperCase() != piece) {
     return false;
   }
 }
@@ -70,7 +71,6 @@ function onDrop(source, target) {
 
 function onChange() {
   updateStatus();
-  
 }
 
 // -------------------------------------
@@ -148,6 +148,8 @@ function playRandom() {
   board.position(game.fen());
 }
 
+var intervalId 
+
 function generateDice() {
   hasLegalMoveFlag = false;
   while (!hasLegalMoveFlag) {
@@ -158,8 +160,11 @@ function generateDice() {
   // console.log(game.moves({piece: dice1}))
 
   //   console.log(piecesNames[dice1])
-
-  $("#dice1").html(piecesNames[dice1]);
+  counter = 0
+  intervalId = setInterval(showDiceAnimation, 150);
+  console.log(game.turn())
+  console.log("BUrda")
+  setTimeout(showRealDice,2500)
 
   //  var randomIdx2 = Math.floor(Math.random() * possibleMoves.length)
   //  var randomIdx3 = Math.floor(Math.random() * possibleMoves.length)
@@ -169,4 +174,23 @@ function generateDice() {
 function roll() {
   var randomIdx1 = Math.floor(Math.random() * pieces.length);
   dice1 = pieces[randomIdx1];
+}
+
+function showDiceAnimation() {
+  counter++;
+  
+  if (counter == 15) {
+
+    clearInterval(intervalId);
+  }
+
+  index = Math.floor(Math.random() * pieces.length);
+  let dummyPiece = pieces[index];
+  $("#dice1").attr("src", `../mydice/${piecesNames[dummyPiece]}.png`);
+  
+}
+
+function  showRealDice() {
+  
+  $("#dice1").attr("src", `../mydice/${piecesNames[dice1]}.png`);
 }

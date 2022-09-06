@@ -1,12 +1,21 @@
-body{
-    background-color: #344e41;
+body {
+  background-color: #344e41;
 }
-p{
-    font-size: large;
-    color: white;
+p {
+  font-size: large;
+  color: white;
 }
 
-#dices{
-    color: whitesmoke;
-    font-size: larger;
+#dices {
+  color: whitesmoke;
+  font-size: larger;
 }
+
+.userSection {
+  background-color: black;
+  width: 100%;
+  color: wheat;
+  height: 5vw;
+  
+}
+

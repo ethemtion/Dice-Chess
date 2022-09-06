@@ -33,15 +33,31 @@
 
   <body>
     <header>
-      <!-- place navbar here -->
+      <nav class="navbar navbar-expand navbar-light bg-light">
+          <ul class="nav navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link" href="#" aria-current="page">Anasayfa <span class="visually-hidden">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" href="#" aria-current="page">Satranç</a>
+              </li>
+          </ul>
+      </nav>
     </header>
     <main>
-      <div class="row justify-content-center align-items-center g-2">
+      <div class="row justify-content-center align-items-center">
+        
         <div
           class="col-8 justify-content-center align-items-center text-center g-2 mt-5"
         >
-          <div id="board" style="width: 80%"></div>
-          <div id="dices"><span id="dice1"></span></div>
+        <div>
+            <div class="userSection" >User</div>
+            <div id="board" style="width: 100%"></div>
+            <div id="dices"><img id="dice1" style="width: 10%;">
+              
+                
+              </div>
+          </div>
         </div>
         <div class="col-2 g-2">
           <p>
