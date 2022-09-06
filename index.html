@@ -48,11 +48,13 @@
       <div class="row justify-content-center align-items-center">
         
         <div
-          class="col-8 justify-content-center align-items-center text-center g-2 mt-5"
+          class="col-6 justify-content-center align-items-center text-center g-2 mt-5"
         >
         <div>
             <div class="userSection" >User</div>
-            <div id="board" style="width: 100%"></div>
+            <div class="boardWrapper">
+              <div id="board" style="width: 100%; max-height: 20vw;"  ></div>
+            </div>
             <div id="dices"><img id="dice1" style="width: 10%;">
               
                 
@@ -61,8 +63,8 @@
         </div>
         <div class="col-2 g-2">
           <p>
-            Oyun sırası: <span id="toMove"></span><br />FEN:
-            <span id="fen"></span><br />PGN: <span id="pgn"></span>
+            Oyun sırası: <span id="toMove"></span>
+            <br />PGN: <span id="pgn"></span>
           </p>
 
           <button
@@ -73,17 +75,15 @@
             <i class="bi bi-arrow-down-up"></i>
           </button>
           <br />
-          <button type="button" class="btn btn-primary" id="btCenterGame">
-            Center Game
-          </button>
-          <button type="button" class="btn btn-primary" id="btStartPos">
-            Start pos
-          </button>
+
           <button type="button" class="btn btn-primary" id="btPlayRandom">
             Play Random
           </button>
           <button type="button" class="btn btn-primary" id="btRandomVs">
             Random vs Random
+          </button>
+          <button type="button" class="btn btn-primary" id="btReroll">
+            Reroll
           </button>
         </div>
       </div>

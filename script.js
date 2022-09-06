@@ -63,14 +63,16 @@ function onDrop(source, target) {
   var move = game.move({
     from: source,
     to: target,
-    promotion: "q", //AutoQueen promote, will come back later
+    promotion: "q"
+     //AutoQueen promote, will come back later
   });
 
   if (move === null) return "snapback";
+  updateStatus();
 }
 
 function onChange() {
-  updateStatus();
+  
 }
 
 // -------------------------------------
@@ -100,7 +102,6 @@ function updateStatus() {
   }
 
   $("#toMove").html(status);
-  $("#fen").html(game.fen());
   $("#pgn").html(game.pgn());
   //   changeOrientation();
   generateDice();
@@ -125,6 +126,10 @@ $("#btPlayRandom").click(function () {
 $("#btRandomVs").click(function () {
   random = setInterval(playRandom, 400);
 });
+
+$('#btReroll').click(function () {
+  reroll();
+})
 
 // ---------------------------------
 // ---------------------------------
@@ -151,7 +156,9 @@ function playRandom() {
 var intervalId 
 
 function generateDice() {
+  if(game.game_over())return
   hasLegalMoveFlag = false;
+  clearInterval(intervalId)
   while (!hasLegalMoveFlag) {
     roll();
     if (game.moves({ piece: dice1 }).length != "0") hasLegalMoveFlag = true;
@@ -161,10 +168,9 @@ function generateDice() {
 
   //   console.log(piecesNames[dice1])
   counter = 0
-  intervalId = setInterval(showDiceAnimation, 150);
-  console.log(game.turn())
-  console.log("BUrda")
-  setTimeout(showRealDice,2500)
+  intervalId = setInterval(showDiceAnimation, 100);
+  
+  setTimeout(showRealDice,1600)
 
   //  var randomIdx2 = Math.floor(Math.random() * possibleMoves.length)
   //  var randomIdx3 = Math.floor(Math.random() * possibleMoves.length)
@@ -177,10 +183,10 @@ function roll() {
 }
 
 function showDiceAnimation() {
+  
   counter++;
   
   if (counter == 15) {
-
     clearInterval(intervalId);
   }
 
@@ -193,4 +199,8 @@ function showDiceAnimation() {
 function  showRealDice() {
   
   $("#dice1").attr("src", `../mydice/${piecesNames[dice1]}.png`);
+}
+
+function reroll() {
+  dice1 = "p"
 }
