@@ -192,13 +192,13 @@ function showDiceAnimation() {
 
   index = Math.floor(Math.random() * pieces.length);
   let dummyPiece = pieces[index];
-  $("#dice1").attr("src", `../mydice/${piecesNames[dummyPiece]}.png`);
+  $("#dice1").attr("src", `mydice/${game.turn()}${piecesNames[dummyPiece]}.png`);
   
 }
 
 function  showRealDice() {
   
-  $("#dice1").attr("src", `../mydice/${piecesNames[dice1]}.png`);
+  $("#dice1").attr("src", `mydice/${game.turn()}${piecesNames[dice1]}.png`);
 }
 
 function reroll() {
